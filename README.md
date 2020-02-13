@@ -32,3 +32,5 @@ The only file missing is the web.config, which contains your RegCheck username, 
   </system.serviceModel>
 </configuration>
 ```
+
+Fork me, or submit a PR :)
