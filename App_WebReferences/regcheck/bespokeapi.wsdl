@@ -1,0 +1,2277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Regcheck.org.uk/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Regcheck.org.uk/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Regcheck.org.uk/">
+      <s:element name="CheckFrance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckFranceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckFranceResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Vehicle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="vehicleJson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="vehicleData">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ABICode">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:integer">
+                        <s:attribute name="type" type="s:NCName" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="Description">
+                  <s:complexType mixed="true">
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="RegistrationYear">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:integer">
+                        <s:attribute name="type" type="s:NCName" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="ManufactureYearFrom">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:integer">
+                        <s:attribute name="type" type="s:NCName" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="ManufactureYearTo">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:integer">
+                        <s:attribute name="type" type="s:NCName" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="CarMake">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="CarModel">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:string">
+                        <s:attribute name="type" type="s:NCName" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="BodyStyle">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="EngineSize">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="NumberOfDoors">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="Transmission">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="FuelType">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="MakeDescription">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:NCName">
+                        <s:attribute name="type" type="s:NCName" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="ModelDescription">
+                  <s:complexType mixed="true">
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="Immobiliser">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="NumberOfSeats">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="IndicativeValue">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:decimal">
+                        <s:attribute name="type" type="s:NCName" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="1" name="DriverSide">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentValue">
+                        <s:complexType>
+                          <s:simpleContent>
+                            <s:extension base="s:integer">
+                              <s:attribute name="type" type="s:NCName" />
+                            </s:extension>
+                          </s:simpleContent>
+                        </s:complexType>
+                      </s:element>
+                      <s:element minOccurs="0" maxOccurs="1" name="CurrentTextValue">
+                        <s:complexType mixed="true">
+                          <s:attribute name="type" type="s:NCName" />
+                        </s:complexType>
+                      </s:element>
+                    </s:sequence>
+                    <s:attribute name="type" type="s:NCName" />
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckAustraliaExtensive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAustraliaExtensiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckAustraliaExtensiveResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckInsuranceStatusItaly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckInsuranceStatusItalyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckInsuranceStatusItalyResult" type="tns:InsuranceDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InsuranceDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Expiry" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInsured" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckInsuranceStatusPortugal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckInsuranceStatusPortugalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckInsuranceStatusPortugalResult" type="tns:Insurance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Insurance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Policy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckIOM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIOMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckIOMResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUSADynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUSADynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUSADynamicResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUSAMinimal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUSAMinimalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUSAMinimalResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUSAEdBolian">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUSAEdBolianResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUSAEdBolianResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckEuroNCap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckEuroNCapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckEuroNCapResult" type="tns:ArrayOfPreAssessmentSearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPreAssessmentSearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PreAssessmentSearchResult" nillable="true" type="tns:PreAssessmentSearchResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PreAssessmentSearchResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AdultOccupantStars" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdultOccupantStrikeThrough" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChildOccupantStars" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChildOccupantStrikeThrough" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PedestrianStars" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PedestrianStrikeThrough" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassEN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassDE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassNL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassES" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassFR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassIT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassRU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassSV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassTR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassZH" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClassId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MakeImageLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MakeImageSmall" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProtocolId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MakeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModelId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPublished" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReleaseDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YoutubeVideos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YoukuVideos" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPreProtocol" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsFleet" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LifecycleStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FirstPublished" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mileage" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPriceResult" type="tns:Valuation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Valuation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckStolen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vinNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckStolenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckStolenResult" type="tns:ArrayOfNameValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNameValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NameValue" nillable="true" type="tns:NameValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NameValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckAlternativeVersionsFrance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckAlternativeVersionsFranceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckAlternativeVersionsFranceResult" type="tns:FrenchCar2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FrenchCar2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="versions" type="tns:ArrayOfFRVersion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFRVersion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FRVersion" nillable="true" type="tns:FRVersion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FRVersion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="anneeSortie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="boiteDeVitesse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carburantVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrosserieVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="classeSra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="libVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="libelleModele" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="marque" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="modele" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="produit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="puissance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cleCarrosserie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="groupeSra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nbPlace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="datePremiereMiseCirculation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="questionBatterie" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="electrique" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="genre" />
+          <s:element minOccurs="0" maxOccurs="1" name="typeVehicule" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="numSerieMoteur" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="valeurANeufSRA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="niveauRisqueVol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="protectionConstructeur" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="puissanceDyn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="segmentVeh" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckRecalledVIN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckRecalledVINResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckRecalledVINResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIrishTaxi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="IrishTaxi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LicenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expiry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicenceHolder" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckIrishTaxiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckIrishTaxiResult" type="tns:IrishTaxi" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckItalyMotorbike">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckItalyMotorbikeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckItalyMotorbikeResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUKMinimal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUKMinimalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUKMinimalResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsInsured">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InsuredStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Insured" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleDetails" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IsInsuredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsInsuredResult" type="tns:InsuredStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckLondonTaxi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LondonTaxi">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="License" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expiry" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckLondonTaxiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckLondonTaxiResult" type="tns:LondonTaxi" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMotorBikeFrance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMotorBikeFranceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckMotorBikeFranceResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMotorBikeSpain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckMotorBikeSpainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckMotorBikeSpainResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckArgentinaExtensive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegistrationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckArgentinaExtensiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckArgentinaExtensiveResult" type="tns:Vehicle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Vehicle" nillable="true" type="tns:Vehicle" />
+      <s:element name="InsuranceDetails" nillable="true" type="tns:InsuranceDetails" />
+      <s:element name="Insurance" nillable="true" type="tns:Insurance" />
+      <s:element name="ArrayOfPreAssessmentSearchResult" nillable="true" type="tns:ArrayOfPreAssessmentSearchResult" />
+      <s:element name="Valuation" nillable="true" type="tns:Valuation" />
+      <s:element name="ArrayOfNameValue" nillable="true" type="tns:ArrayOfNameValue" />
+      <s:element name="FrenchCar2" nillable="true" type="tns:FrenchCar2" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="IrishTaxi" nillable="true" type="tns:IrishTaxi" />
+      <s:element name="InsuredStatus" nillable="true" type="tns:InsuredStatus" />
+      <s:element name="LondonTaxi" nillable="true" type="tns:LondonTaxi" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckFranceSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckFrance" />
+  </wsdl:message>
+  <wsdl:message name="CheckFranceSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckFranceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAustraliaExtensiveSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAustraliaExtensive" />
+  </wsdl:message>
+  <wsdl:message name="CheckAustraliaExtensiveSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAustraliaExtensiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusItalySoapIn">
+    <wsdl:part name="parameters" element="tns:CheckInsuranceStatusItaly" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusItalySoapOut">
+    <wsdl:part name="parameters" element="tns:CheckInsuranceStatusItalyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusPortugalSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckInsuranceStatusPortugal" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusPortugalSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckInsuranceStatusPortugalResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckIOMSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckIOM" />
+  </wsdl:message>
+  <wsdl:message name="CheckIOMSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckIOMResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSADynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUSADynamic" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSADynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUSADynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAMinimalSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUSAMinimal" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAMinimalSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUSAMinimalResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAEdBolianSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUSAEdBolian" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAEdBolianSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUSAEdBolianResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckEuroNCapSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckEuroNCap" />
+  </wsdl:message>
+  <wsdl:message name="CheckEuroNCapSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckEuroNCapResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPrice" />
+  </wsdl:message>
+  <wsdl:message name="CheckPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckStolenSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckStolen" />
+  </wsdl:message>
+  <wsdl:message name="CheckStolenSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckStolenResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAlternativeVersionsFranceSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckAlternativeVersionsFrance" />
+  </wsdl:message>
+  <wsdl:message name="CheckAlternativeVersionsFranceSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckAlternativeVersionsFranceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecalledVINSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckRecalledVIN" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecalledVINSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckRecalledVINResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckIrishTaxiSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckIrishTaxi" />
+  </wsdl:message>
+  <wsdl:message name="CheckIrishTaxiSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckIrishTaxiResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckItalyMotorbikeSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckItalyMotorbike" />
+  </wsdl:message>
+  <wsdl:message name="CheckItalyMotorbikeSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckItalyMotorbikeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUKMinimalSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUKMinimal" />
+  </wsdl:message>
+  <wsdl:message name="CheckUKMinimalSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUKMinimalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsInsuredSoapIn">
+    <wsdl:part name="parameters" element="tns:IsInsured" />
+  </wsdl:message>
+  <wsdl:message name="IsInsuredSoapOut">
+    <wsdl:part name="parameters" element="tns:IsInsuredResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckLondonTaxiSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckLondonTaxi" />
+  </wsdl:message>
+  <wsdl:message name="CheckLondonTaxiSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckLondonTaxiResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeFranceSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckMotorBikeFrance" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeFranceSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckMotorBikeFranceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeSpainSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckMotorBikeSpain" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeSpainSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckMotorBikeSpainResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckArgentinaExtensiveSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckArgentinaExtensive" />
+  </wsdl:message>
+  <wsdl:message name="CheckArgentinaExtensiveSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckArgentinaExtensiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckFranceHttpGetIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckFranceHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckAustraliaExtensiveHttpGetIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckAustraliaExtensiveHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusItalyHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusItalyHttpGetOut">
+    <wsdl:part name="Body" element="tns:InsuranceDetails" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusPortugalHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusPortugalHttpGetOut">
+    <wsdl:part name="Body" element="tns:Insurance" />
+  </wsdl:message>
+  <wsdl:message name="CheckIOMHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIOMHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSADynamicHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSADynamicHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAMinimalHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAMinimalHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAEdBolianHttpGetIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAEdBolianHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckEuroNCapHttpGetIn">
+    <wsdl:part name="Make" type="s:string" />
+    <wsdl:part name="Model" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckEuroNCapHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPreAssessmentSearchResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckPriceHttpGetIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="mileage" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPriceHttpGetOut">
+    <wsdl:part name="Body" element="tns:Valuation" />
+  </wsdl:message>
+  <wsdl:message name="CheckStolenHttpGetIn">
+    <wsdl:part name="vinNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckStolenHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNameValue" />
+  </wsdl:message>
+  <wsdl:message name="CheckAlternativeVersionsFranceHttpGetIn">
+    <wsdl:part name="RegNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckAlternativeVersionsFranceHttpGetOut">
+    <wsdl:part name="Body" element="tns:FrenchCar2" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecalledVINHttpGetIn">
+    <wsdl:part name="vin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecalledVINHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIrishTaxiHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIrishTaxiHttpGetOut">
+    <wsdl:part name="Body" element="tns:IrishTaxi" />
+  </wsdl:message>
+  <wsdl:message name="CheckItalyMotorbikeHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckItalyMotorbikeHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckUKMinimalHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUKMinimalHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="IsInsuredHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsInsuredHttpGetOut">
+    <wsdl:part name="Body" element="tns:InsuredStatus" />
+  </wsdl:message>
+  <wsdl:message name="CheckLondonTaxiHttpGetIn">
+    <wsdl:part name="regNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckLondonTaxiHttpGetOut">
+    <wsdl:part name="Body" element="tns:LondonTaxi" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeFranceHttpGetIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeFranceHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeSpainHttpGetIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeSpainHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckArgentinaExtensiveHttpGetIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckArgentinaExtensiveHttpGetOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckFranceHttpPostIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckFranceHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckAustraliaExtensiveHttpPostIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckAustraliaExtensiveHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusItalyHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusItalyHttpPostOut">
+    <wsdl:part name="Body" element="tns:InsuranceDetails" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusPortugalHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckInsuranceStatusPortugalHttpPostOut">
+    <wsdl:part name="Body" element="tns:Insurance" />
+  </wsdl:message>
+  <wsdl:message name="CheckIOMHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIOMHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSADynamicHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSADynamicHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAMinimalHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="state" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAMinimalHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAEdBolianHttpPostIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUSAEdBolianHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckEuroNCapHttpPostIn">
+    <wsdl:part name="Make" type="s:string" />
+    <wsdl:part name="Model" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckEuroNCapHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPreAssessmentSearchResult" />
+  </wsdl:message>
+  <wsdl:message name="CheckPriceHttpPostIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="mileage" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckPriceHttpPostOut">
+    <wsdl:part name="Body" element="tns:Valuation" />
+  </wsdl:message>
+  <wsdl:message name="CheckStolenHttpPostIn">
+    <wsdl:part name="vinNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckStolenHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNameValue" />
+  </wsdl:message>
+  <wsdl:message name="CheckAlternativeVersionsFranceHttpPostIn">
+    <wsdl:part name="RegNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckAlternativeVersionsFranceHttpPostOut">
+    <wsdl:part name="Body" element="tns:FrenchCar2" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecalledVINHttpPostIn">
+    <wsdl:part name="vin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckRecalledVINHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIrishTaxiHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckIrishTaxiHttpPostOut">
+    <wsdl:part name="Body" element="tns:IrishTaxi" />
+  </wsdl:message>
+  <wsdl:message name="CheckItalyMotorbikeHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckItalyMotorbikeHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckUKMinimalHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckUKMinimalHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="IsInsuredHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsInsuredHttpPostOut">
+    <wsdl:part name="Body" element="tns:InsuredStatus" />
+  </wsdl:message>
+  <wsdl:message name="CheckLondonTaxiHttpPostIn">
+    <wsdl:part name="regNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckLondonTaxiHttpPostOut">
+    <wsdl:part name="Body" element="tns:LondonTaxi" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeFranceHttpPostIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeFranceHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeSpainHttpPostIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckMotorBikeSpainHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:message name="CheckArgentinaExtensiveHttpPostIn">
+    <wsdl:part name="RegistrationNumber" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CheckArgentinaExtensiveHttpPostOut">
+    <wsdl:part name="Body" element="tns:Vehicle" />
+  </wsdl:message>
+  <wsdl:portType name="BespokeAPISoap">
+    <wsdl:operation name="CheckFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in France (Alternative)</wsdl:documentation>
+      <wsdl:input message="tns:CheckFranceSoapIn" />
+      <wsdl:output message="tns:CheckFranceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAustraliaExtensive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in Australia</wsdl:documentation>
+      <wsdl:input message="tns:CheckAustraliaExtensiveSoapIn" />
+      <wsdl:output message="tns:CheckAustraliaExtensiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusItaly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the insurance details for a vehicle registered in Italy</wsdl:documentation>
+      <wsdl:input message="tns:CheckInsuranceStatusItalySoapIn" />
+      <wsdl:output message="tns:CheckInsuranceStatusItalySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusPortugal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the insurance details for a vehicle registered in Portugal</wsdl:documentation>
+      <wsdl:input message="tns:CheckInsuranceStatusPortugalSoapIn" />
+      <wsdl:output message="tns:CheckInsuranceStatusPortugalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIOM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle registered in the Isle Of Man</wsdl:documentation>
+      <wsdl:input message="tns:CheckIOMSoapIn" />
+      <wsdl:output message="tns:CheckIOMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSADynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA with a dynamic data set</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSADynamicSoapIn" />
+      <wsdl:output message="tns:CheckUSADynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAMinimal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA with a restricted data set</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSAMinimalSoapIn" />
+      <wsdl:output message="tns:CheckUSAMinimalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAEdBolian">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA [restricted to one account]</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSAEdBolianSoapIn" />
+      <wsdl:output message="tns:CheckUSAEdBolianSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckEuroNCap">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check EuroNCap safety ratings for a vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CheckEuroNCapSoapIn" />
+      <wsdl:output message="tns:CheckEuroNCapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPrice">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get indicative pricing for a vehicle in the UK</wsdl:documentation>
+      <wsdl:input message="tns:CheckPriceSoapIn" />
+      <wsdl:output message="tns:CheckPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStolen">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine if a vehicle is stolen, based on its VIN number</wsdl:documentation>
+      <wsdl:input message="tns:CheckStolenSoapIn" />
+      <wsdl:output message="tns:CheckStolenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlternativeVersionsFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to retrieve alternative versions of a French vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CheckAlternativeVersionsFranceSoapIn" />
+      <wsdl:output message="tns:CheckAlternativeVersionsFranceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecalledVIN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if a VIN number has been recalled</wsdl:documentation>
+      <wsdl:input message="tns:CheckRecalledVINSoapIn" />
+      <wsdl:output message="tns:CheckRecalledVINSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIrishTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Taxi registered in Ireland</wsdl:documentation>
+      <wsdl:input message="tns:CheckIrishTaxiSoapIn" />
+      <wsdl:output message="tns:CheckIrishTaxiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckItalyMotorbike">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Motorbike details in italy</wsdl:documentation>
+      <wsdl:input message="tns:CheckItalyMotorbikeSoapIn" />
+      <wsdl:output message="tns:CheckItalyMotorbikeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUKMinimal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">A minimal UK lookup, less data, but half price.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUKMinimalSoapIn" />
+      <wsdl:output message="tns:CheckUKMinimalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInsured">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine if a UK vehicle is insured</wsdl:documentation>
+      <wsdl:input message="tns:IsInsuredSoapIn" />
+      <wsdl:output message="tns:IsInsuredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLondonTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Taxi registered in London</wsdl:documentation>
+      <wsdl:input message="tns:CheckLondonTaxiSoapIn" />
+      <wsdl:output message="tns:CheckLondonTaxiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Motorbike registered in France</wsdl:documentation>
+      <wsdl:input message="tns:CheckMotorBikeFranceSoapIn" />
+      <wsdl:output message="tns:CheckMotorBikeFranceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeSpain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Motorbike registered in Spain</wsdl:documentation>
+      <wsdl:input message="tns:CheckMotorBikeSpainSoapIn" />
+      <wsdl:output message="tns:CheckMotorBikeSpainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckArgentinaExtensive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a vehicle registered in Argentina</wsdl:documentation>
+      <wsdl:input message="tns:CheckArgentinaExtensiveSoapIn" />
+      <wsdl:output message="tns:CheckArgentinaExtensiveSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BespokeAPIHttpGet">
+    <wsdl:operation name="CheckFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in France (Alternative)</wsdl:documentation>
+      <wsdl:input message="tns:CheckFranceHttpGetIn" />
+      <wsdl:output message="tns:CheckFranceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAustraliaExtensive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in Australia</wsdl:documentation>
+      <wsdl:input message="tns:CheckAustraliaExtensiveHttpGetIn" />
+      <wsdl:output message="tns:CheckAustraliaExtensiveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusItaly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the insurance details for a vehicle registered in Italy</wsdl:documentation>
+      <wsdl:input message="tns:CheckInsuranceStatusItalyHttpGetIn" />
+      <wsdl:output message="tns:CheckInsuranceStatusItalyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusPortugal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the insurance details for a vehicle registered in Portugal</wsdl:documentation>
+      <wsdl:input message="tns:CheckInsuranceStatusPortugalHttpGetIn" />
+      <wsdl:output message="tns:CheckInsuranceStatusPortugalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIOM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle registered in the Isle Of Man</wsdl:documentation>
+      <wsdl:input message="tns:CheckIOMHttpGetIn" />
+      <wsdl:output message="tns:CheckIOMHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSADynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA with a dynamic data set</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSADynamicHttpGetIn" />
+      <wsdl:output message="tns:CheckUSADynamicHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAMinimal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA with a restricted data set</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSAMinimalHttpGetIn" />
+      <wsdl:output message="tns:CheckUSAMinimalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAEdBolian">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA [restricted to one account]</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSAEdBolianHttpGetIn" />
+      <wsdl:output message="tns:CheckUSAEdBolianHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckEuroNCap">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check EuroNCap safety ratings for a vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CheckEuroNCapHttpGetIn" />
+      <wsdl:output message="tns:CheckEuroNCapHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPrice">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get indicative pricing for a vehicle in the UK</wsdl:documentation>
+      <wsdl:input message="tns:CheckPriceHttpGetIn" />
+      <wsdl:output message="tns:CheckPriceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStolen">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine if a vehicle is stolen, based on its VIN number</wsdl:documentation>
+      <wsdl:input message="tns:CheckStolenHttpGetIn" />
+      <wsdl:output message="tns:CheckStolenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlternativeVersionsFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to retrieve alternative versions of a French vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CheckAlternativeVersionsFranceHttpGetIn" />
+      <wsdl:output message="tns:CheckAlternativeVersionsFranceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecalledVIN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if a VIN number has been recalled</wsdl:documentation>
+      <wsdl:input message="tns:CheckRecalledVINHttpGetIn" />
+      <wsdl:output message="tns:CheckRecalledVINHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIrishTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Taxi registered in Ireland</wsdl:documentation>
+      <wsdl:input message="tns:CheckIrishTaxiHttpGetIn" />
+      <wsdl:output message="tns:CheckIrishTaxiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckItalyMotorbike">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Motorbike details in italy</wsdl:documentation>
+      <wsdl:input message="tns:CheckItalyMotorbikeHttpGetIn" />
+      <wsdl:output message="tns:CheckItalyMotorbikeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUKMinimal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">A minimal UK lookup, less data, but half price.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUKMinimalHttpGetIn" />
+      <wsdl:output message="tns:CheckUKMinimalHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInsured">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine if a UK vehicle is insured</wsdl:documentation>
+      <wsdl:input message="tns:IsInsuredHttpGetIn" />
+      <wsdl:output message="tns:IsInsuredHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLondonTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Taxi registered in London</wsdl:documentation>
+      <wsdl:input message="tns:CheckLondonTaxiHttpGetIn" />
+      <wsdl:output message="tns:CheckLondonTaxiHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Motorbike registered in France</wsdl:documentation>
+      <wsdl:input message="tns:CheckMotorBikeFranceHttpGetIn" />
+      <wsdl:output message="tns:CheckMotorBikeFranceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeSpain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Motorbike registered in Spain</wsdl:documentation>
+      <wsdl:input message="tns:CheckMotorBikeSpainHttpGetIn" />
+      <wsdl:output message="tns:CheckMotorBikeSpainHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckArgentinaExtensive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a vehicle registered in Argentina</wsdl:documentation>
+      <wsdl:input message="tns:CheckArgentinaExtensiveHttpGetIn" />
+      <wsdl:output message="tns:CheckArgentinaExtensiveHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BespokeAPIHttpPost">
+    <wsdl:operation name="CheckFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in France (Alternative)</wsdl:documentation>
+      <wsdl:input message="tns:CheckFranceHttpPostIn" />
+      <wsdl:output message="tns:CheckFranceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAustraliaExtensive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in Australia</wsdl:documentation>
+      <wsdl:input message="tns:CheckAustraliaExtensiveHttpPostIn" />
+      <wsdl:output message="tns:CheckAustraliaExtensiveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusItaly">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the insurance details for a vehicle registered in Italy</wsdl:documentation>
+      <wsdl:input message="tns:CheckInsuranceStatusItalyHttpPostIn" />
+      <wsdl:output message="tns:CheckInsuranceStatusItalyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusPortugal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the insurance details for a vehicle registered in Portugal</wsdl:documentation>
+      <wsdl:input message="tns:CheckInsuranceStatusPortugalHttpPostIn" />
+      <wsdl:output message="tns:CheckInsuranceStatusPortugalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIOM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle registered in the Isle Of Man</wsdl:documentation>
+      <wsdl:input message="tns:CheckIOMHttpPostIn" />
+      <wsdl:output message="tns:CheckIOMHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSADynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA with a dynamic data set</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSADynamicHttpPostIn" />
+      <wsdl:output message="tns:CheckUSADynamicHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAMinimal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA with a restricted data set</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSAMinimalHttpPostIn" />
+      <wsdl:output message="tns:CheckUSAMinimalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAEdBolian">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details for a vehicle in the USA [restricted to one account]</wsdl:documentation>
+      <wsdl:input message="tns:CheckUSAEdBolianHttpPostIn" />
+      <wsdl:output message="tns:CheckUSAEdBolianHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckEuroNCap">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check EuroNCap safety ratings for a vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CheckEuroNCapHttpPostIn" />
+      <wsdl:output message="tns:CheckEuroNCapHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPrice">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get indicative pricing for a vehicle in the UK</wsdl:documentation>
+      <wsdl:input message="tns:CheckPriceHttpPostIn" />
+      <wsdl:output message="tns:CheckPriceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStolen">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine if a vehicle is stolen, based on its VIN number</wsdl:documentation>
+      <wsdl:input message="tns:CheckStolenHttpPostIn" />
+      <wsdl:output message="tns:CheckStolenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlternativeVersionsFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Used to retrieve alternative versions of a French vehicle</wsdl:documentation>
+      <wsdl:input message="tns:CheckAlternativeVersionsFranceHttpPostIn" />
+      <wsdl:output message="tns:CheckAlternativeVersionsFranceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecalledVIN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if a VIN number has been recalled</wsdl:documentation>
+      <wsdl:input message="tns:CheckRecalledVINHttpPostIn" />
+      <wsdl:output message="tns:CheckRecalledVINHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIrishTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Taxi registered in Ireland</wsdl:documentation>
+      <wsdl:input message="tns:CheckIrishTaxiHttpPostIn" />
+      <wsdl:output message="tns:CheckIrishTaxiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckItalyMotorbike">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Motorbike details in italy</wsdl:documentation>
+      <wsdl:input message="tns:CheckItalyMotorbikeHttpPostIn" />
+      <wsdl:output message="tns:CheckItalyMotorbikeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUKMinimal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">A minimal UK lookup, less data, but half price.</wsdl:documentation>
+      <wsdl:input message="tns:CheckUKMinimalHttpPostIn" />
+      <wsdl:output message="tns:CheckUKMinimalHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInsured">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine if a UK vehicle is insured</wsdl:documentation>
+      <wsdl:input message="tns:IsInsuredHttpPostIn" />
+      <wsdl:output message="tns:IsInsuredHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckLondonTaxi">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Taxi registered in London</wsdl:documentation>
+      <wsdl:input message="tns:CheckLondonTaxiHttpPostIn" />
+      <wsdl:output message="tns:CheckLondonTaxiHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeFrance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Motorbike registered in France</wsdl:documentation>
+      <wsdl:input message="tns:CheckMotorBikeFranceHttpPostIn" />
+      <wsdl:output message="tns:CheckMotorBikeFranceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeSpain">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a Motorbike registered in Spain</wsdl:documentation>
+      <wsdl:input message="tns:CheckMotorBikeSpainHttpPostIn" />
+      <wsdl:output message="tns:CheckMotorBikeSpainHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckArgentinaExtensive">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get details of a vehicle registered in Argentina</wsdl:documentation>
+      <wsdl:input message="tns:CheckArgentinaExtensiveHttpPostIn" />
+      <wsdl:output message="tns:CheckArgentinaExtensiveHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BespokeAPISoap" type="tns:BespokeAPISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckFrance">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckFrance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAustraliaExtensive">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckAustraliaExtensive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusItaly">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckInsuranceStatusItaly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusPortugal">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckInsuranceStatusPortugal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIOM">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckIOM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSADynamic">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckUSADynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAMinimal">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckUSAMinimal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAEdBolian">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckUSAEdBolian" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEuroNCap">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckEuroNCap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPrice">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckStolen">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckStolen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlternativeVersionsFrance">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckAlternativeVersionsFrance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecalledVIN">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckRecalledVIN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIrishTaxi">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckIrishTaxi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckItalyMotorbike">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckItalyMotorbike" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUKMinimal">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckUKMinimal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInsured">
+      <soap:operation soapAction="http://Regcheck.org.uk/IsInsured" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLondonTaxi">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckLondonTaxi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeFrance">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckMotorBikeFrance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeSpain">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckMotorBikeSpain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckArgentinaExtensive">
+      <soap:operation soapAction="http://Regcheck.org.uk/CheckArgentinaExtensive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BespokeAPISoap12" type="tns:BespokeAPISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckFrance">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckFrance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAustraliaExtensive">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckAustraliaExtensive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusItaly">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckInsuranceStatusItaly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusPortugal">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckInsuranceStatusPortugal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIOM">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckIOM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSADynamic">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckUSADynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAMinimal">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckUSAMinimal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAEdBolian">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckUSAEdBolian" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEuroNCap">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckEuroNCap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPrice">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckStolen">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckStolen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlternativeVersionsFrance">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckAlternativeVersionsFrance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecalledVIN">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckRecalledVIN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIrishTaxi">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckIrishTaxi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckItalyMotorbike">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckItalyMotorbike" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUKMinimal">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckUKMinimal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInsured">
+      <soap12:operation soapAction="http://Regcheck.org.uk/IsInsured" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLondonTaxi">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckLondonTaxi" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeFrance">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckMotorBikeFrance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeSpain">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckMotorBikeSpain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckArgentinaExtensive">
+      <soap12:operation soapAction="http://Regcheck.org.uk/CheckArgentinaExtensive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BespokeAPIHttpGet" type="tns:BespokeAPIHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CheckFrance">
+      <http:operation location="/CheckFrance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAustraliaExtensive">
+      <http:operation location="/CheckAustraliaExtensive" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusItaly">
+      <http:operation location="/CheckInsuranceStatusItaly" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusPortugal">
+      <http:operation location="/CheckInsuranceStatusPortugal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIOM">
+      <http:operation location="/CheckIOM" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSADynamic">
+      <http:operation location="/CheckUSADynamic" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAMinimal">
+      <http:operation location="/CheckUSAMinimal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAEdBolian">
+      <http:operation location="/CheckUSAEdBolian" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEuroNCap">
+      <http:operation location="/CheckEuroNCap" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPrice">
+      <http:operation location="/CheckPrice" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckStolen">
+      <http:operation location="/CheckStolen" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlternativeVersionsFrance">
+      <http:operation location="/CheckAlternativeVersionsFrance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecalledVIN">
+      <http:operation location="/CheckRecalledVIN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIrishTaxi">
+      <http:operation location="/CheckIrishTaxi" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckItalyMotorbike">
+      <http:operation location="/CheckItalyMotorbike" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUKMinimal">
+      <http:operation location="/CheckUKMinimal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInsured">
+      <http:operation location="/IsInsured" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLondonTaxi">
+      <http:operation location="/CheckLondonTaxi" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeFrance">
+      <http:operation location="/CheckMotorBikeFrance" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeSpain">
+      <http:operation location="/CheckMotorBikeSpain" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckArgentinaExtensive">
+      <http:operation location="/CheckArgentinaExtensive" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BespokeAPIHttpPost" type="tns:BespokeAPIHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CheckFrance">
+      <http:operation location="/CheckFrance" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAustraliaExtensive">
+      <http:operation location="/CheckAustraliaExtensive" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusItaly">
+      <http:operation location="/CheckInsuranceStatusItaly" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckInsuranceStatusPortugal">
+      <http:operation location="/CheckInsuranceStatusPortugal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIOM">
+      <http:operation location="/CheckIOM" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSADynamic">
+      <http:operation location="/CheckUSADynamic" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAMinimal">
+      <http:operation location="/CheckUSAMinimal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUSAEdBolian">
+      <http:operation location="/CheckUSAEdBolian" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckEuroNCap">
+      <http:operation location="/CheckEuroNCap" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPrice">
+      <http:operation location="/CheckPrice" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckStolen">
+      <http:operation location="/CheckStolen" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAlternativeVersionsFrance">
+      <http:operation location="/CheckAlternativeVersionsFrance" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckRecalledVIN">
+      <http:operation location="/CheckRecalledVIN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIrishTaxi">
+      <http:operation location="/CheckIrishTaxi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckItalyMotorbike">
+      <http:operation location="/CheckItalyMotorbike" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUKMinimal">
+      <http:operation location="/CheckUKMinimal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInsured">
+      <http:operation location="/IsInsured" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckLondonTaxi">
+      <http:operation location="/CheckLondonTaxi" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeFrance">
+      <http:operation location="/CheckMotorBikeFrance" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckMotorBikeSpain">
+      <http:operation location="/CheckMotorBikeSpain" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckArgentinaExtensive">
+      <http:operation location="/CheckArgentinaExtensive" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BespokeAPI">
+    <wsdl:port name="BespokeAPISoap" binding="tns:BespokeAPISoap">
+      <soap:address location="http://www.regcheck.org.uk/api/bespokeapi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BespokeAPISoap12" binding="tns:BespokeAPISoap12">
+      <soap12:address location="http://www.regcheck.org.uk/api/bespokeapi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BespokeAPIHttpGet" binding="tns:BespokeAPIHttpGet">
+      <http:address location="http://www.regcheck.org.uk/api/bespokeapi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BespokeAPIHttpPost" binding="tns:BespokeAPIHttpPost">
+      <http:address location="http://www.regcheck.org.uk/api/bespokeapi.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
