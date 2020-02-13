@@ -48,7 +48,8 @@
                 <input type="text" class="form-control form-control-lg" id="tbReg" placeholder="Reg Number...">
               </div>
               <div class="col-12 col-md-3">
-                <button id="btnSearch" class="btn btn-block btn-lg btn-primary" >Search</button>
+                <button id="btnSearch" class="btn btn-block btn-lg btn-primary" ><i class="fa fa-spinner fa-spin"  id="spinner" ></i> Search</button>
+                  
               </div>
             </div>
           </form>
@@ -139,6 +140,10 @@
             <li class="list-inline-item">
               <a href="http://www.infiniteloop.ie/privacy-policy.html">Privacy Policy</a>
             </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+                <a href="https://github.com/infiniteloopltd/vrmapi.co.uk">Open Source on GitHub</a>
+            </li>
           </ul>
           <p class="text-muted small mb-4 mb-l0-0">&copy; Infinite Loop Development Ltd 202-. All Rights Reserved.</p>
         </div>
@@ -217,26 +222,38 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?render=6LdgU9gUAAAAAIcGMkw1s0WfGPgZMByZedhxGPv3"></script>
 <script>
-    
+
     function init()
     {
         console.log("jquery loaded");
+        $("#spinner").hide();
         $("#btnSearch").bind("click",btnSearch_click);
     }
     function btnSearch_click() {
+        $("#spinner").show();
         grecaptcha.execute('6LdgU9gUAAAAAIcGMkw1s0WfGPgZMByZedhxGPv3', { action: 'login' }).then(function (token) {
             console.log(token);
             var reg = $("#tbReg").val();
-            $.get("/ajax.aspx?reg=" + reg + "&recaptcha=" + token, function (data) {
-                debugger;
-                console.log(data);
-                $("#exampleModalLabel").html(data.Description);
-                var tpl = $("#tplVehicleHeader").html();
-                var body = Mustache.to_html(tpl, data);
-                $("#modalBody").html(body);
-                $("#exampleModal").modal("show");
+            $.ajax({
+                url: "/ajax.aspx?reg=" + reg + "&recaptcha=" + token,
+                type: 'GET',
+                success: function (data) {              
+                    console.log(data);
+                    $("#exampleModalLabel").html(data.Description);
+                    var tpl = $("#tplVehicleHeader").html();
+                    var body = Mustache.to_html(tpl, data);
+                    $("#modalBody").html(body);
+                    $("#exampleModal").modal("show");
+                    $("#spinner").hide();
+                },
+                error: function (data) {
+                    console.log(data);
+                    bootbox.alert("Failed");
+                    $("#spinner").hide();
+                }
             });
         });
         return false;
